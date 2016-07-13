@@ -1,0 +1,27 @@
+{
+  "name": "fwd-toolkit",
+  "version": "1.0.0",
+  "description": "Front-end Webb Developer Toolkit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiddhustle/fwd-toolkit.git"
+  },
+  "keywords": [
+    "functional",
+    "library"
+  ],
+  "author": "kiddhustle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiddhustle/fwd-toolkit/issues"
+  },
+  "homepage": "https://github.com/kiddhustle/fwd-toolkit#readme",
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0"
+  }
+}
