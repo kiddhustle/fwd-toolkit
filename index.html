@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NHS Digital sandbox</title>
+  <link rel="stylesheet" type="text/css" href="app.css"/>
+</head>
+<body>
+  <h2>HTML Table</h2>
+  <table class="scorecard2">
+    <thead class="scorecard2__header">
+      <tr>
+        <th scope="col">Indicator 1</th>
+        <th scope="col">Indicator 2</th>
+        <th scope="col">Indicator 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="scorecard2__row">
+        <td data-th="Indicator 1" class="scorecard2__cell">Some value</td>
+        <td data-th="Indicator 2" class="scorecard2__cell">Some value</td>
+        <td data-th="Indicator 3" class="scorecard2__cell">Some value</td>
+      </tr>
+      <tr>
+        <td data-th="Indicator 1" class="scorecard2__cell">Some value</td>
+        <td data-th="Indicator 2" class="scorecard2__cell">Some value</td>
+        <td data-th="Indicator 3" class="scorecard2__cell">Some value</td>
+      </tr>
+      <tr>
+        <td data-th="Indicator 1" class="scorecard2__cell">Some value</td>
+        <td data-th="Indicator 2" class="scorecard2__cell">Some value</td>
+        <td data-th="Indicator 3" class="scorecard2__cell">Some value</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>DIV Table</h2>
+  <div class="scorecard">
+    <div class="scorecard__header">
+      <div class="scorecard__row">
+        <div class="scorecard__cell">Col head 1</div>
+        <div class="scorecard__cell">Col head 2</div>
+        <div class="scorecard__cell">Col head 3</div>
+      </div>
+    </div>
+    <div class="scorecard__body">
+      <div class="scorecard__row">
+        <div class="scorecard__cell">Some value</div>
+        <div class="scorecard__cell">Some value</div>
+        <div class="scorecard__cell">Some value</div>
+      </div>
+      <div class="scorecard__row">
+        <div class="scorecard__cell">Some value</div>
+        <div class="scorecard__cell">Some value</div>
+        <div class="scorecard__cell">Some value</div>
+      </div>
+      <div class="scorecard__row">
+        <div class="scorecard__cell">Some value</div>
+        <div class="scorecard__cell">Some value</div>
+        <div class="scorecard__cell">Some value</div>
+      </div>
+    </div>
+    <div class="scorecard__footer"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
