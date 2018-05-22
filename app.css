@@ -45,19 +45,34 @@ table {
   position: fixed;
   top: 0;
 }
-
+/**
+ * Scorecard 2
+ * @type {[type]}
+ */
 .scorecard2 {
+  table-layout: fixed;
+}
+.scorecard2, .scorecard2__header {
   background: var(--color-table-bg);
   color: var(--color-table-font);
+  text-align: left;
   width: 100%;
+}
+
+.scorecard2.sticky {
+  padding-top: 52px;
+}
+.scorecard2.sticky .scorecard2__header {
+  position: fixed;
+  top: 0;
 }
 
 .scorecard2__header {
   display: none;
 }
 
-.scorecard2__cell, .scorecard2__cell::before {
-  padding: 0.25rem;
+.scorecard2__headercell, .scorecard2__cell, .scorecard2__cell::before {
+  padding: 0.5rem;
 }
 .scorecard2__cell {
   display: block;
@@ -67,4 +82,18 @@ table {
   content: attr(data-th)": ";
   display: inline-block;
   font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  .scorecard2__header {
+    display: table-header-group;
+  }
+
+  .scorecard2__cell {
+    display: table-cell;
+  }
+
+  .scorecard2__cell::before {
+    display: none;
+  }
 }
