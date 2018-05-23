@@ -23,7 +23,12 @@ const onScroll = function (cards, e) {
 		const mqStr = el.getAttribute('data-sticky-mq')
 		const colNum = el.getAttribute('data-columns')
 		// const colWidth = ((1 / colNum) * 100) + '%'
-		const colWidth = ((1 / colNum) * el.offsetWidth) + 'px'
+		const colWidth = ((1 / colNum) * el.offsetWidth)
+		// const colWidth = el.querySelector('tbody td').offsetWidth
+
+		const tHead = el.querySelector('.scorecard2__header')
+		console.log(`tHead: ${tHead}`)
+		console.log(tHead)
 
 		if (!mqStr) {
 			return
@@ -34,9 +39,11 @@ const onScroll = function (cards, e) {
 
 		if( mq.matches && el.offsetTop <= window.pageYOffset && (el.offsetTop + el.offsetHeight)  >= window.pageYOffset ) {
 			el.classList.add('sticky')
-			aHeaderCells.forEach((cell) => cell.style.width = colWidth)
+			tHead.style.width = (colNum * colWidth) + 'px'
+			aHeaderCells.forEach((cell) => cell.style.width = colWidth + 'px')
 		} else {
 			el.classList.remove('sticky')
+			tHead.style.width = 'auto'
 			aHeaderCells.forEach((cell) => cell.style.width = 'auto')
 		}
 	})
