@@ -1,4 +1,7 @@
-const CSS_CARD_MQ = '.scorecard2'
+const CSS_TBL_MQ = '.fwdtable'
+const CSS_TBL_MQ_HEADER = '.fwdtable__header'
+const CSS_TBL_MQ_HEADERCELL = '.fwdtable__headercell'
+const DEBOUNCE_DELAY = 20
 const debounce = function (func, wait, immediate) {
 	let timeout;
 	return function() {
@@ -21,28 +24,39 @@ const onScroll = function (cards, e) {
 		// console.log(`el.offsetTop: ${el.offsetTop}`)
 		// console.log(`window.pageYOffset: ${window.pageYOffset}`)
 		const mqStr = el.getAttribute('data-sticky-mq')
+		const isSticky = parseInt((el.getAttribute('data-sticky')))
 		const colNum = el.getAttribute('data-columns')
 		// const colWidth = ((1 / colNum) * 100) + '%'
 		const colWidth = ((1 / colNum) * el.offsetWidth)
 		// const colWidth = el.querySelector('tbody td').offsetWidth
 
-		const tHead = el.querySelector('.scorecard2__header')
-		console.log(`tHead: ${tHead}`)
-		console.log(tHead)
+		const tHead = el.querySelector(CSS_TBL_MQ_HEADER)
+		// console.log(`tHead: ${tHead}`)
+		// console.log(tHead)
 
 		if (!mqStr) {
 			return
 		}
 
 		const mq = window.matchMedia(mqStr)
-		const aHeaderCells = [].slice.call(el.querySelectorAll('.scorecard2__headercell'))
+		const aHeaderCells = [].slice.call(el.querySelectorAll(CSS_TBL_MQ_HEADERCELL))
 
 		if( mq.matches && el.offsetTop <= window.pageYOffset && (el.offsetTop + el.offsetHeight)  >= window.pageYOffset ) {
-			el.classList.add('sticky')
+			// no need to re-apply styles
+			if (isSticky) {
+				return
+			}
+			// el.classList.add('sticky')
+			el.setAttribute('data-sticky', 1)
 			tHead.style.width = (colNum * colWidth) + 'px'
 			aHeaderCells.forEach((cell) => cell.style.width = colWidth + 'px')
 		} else {
-			el.classList.remove('sticky')
+			// no need to re-apply styles
+			if (!isSticky) {
+				return
+			}
+			// el.classList.remove('sticky')
+			el.setAttribute('data-sticky', 0)
 			tHead.style.width = 'auto'
 			aHeaderCells.forEach((cell) => cell.style.width = 'auto')
 		}
@@ -50,8 +64,9 @@ const onScroll = function (cards, e) {
 }
 const main = function (e) {
   console.log('ready')
-  const cards = [].slice.call(document.querySelectorAll(CSS_CARD_MQ))
+  const cards = [].slice.call(document.querySelectorAll(CSS_TBL_MQ))
   // addEventListeners
-  window.addEventListener('scroll', debounce( onScroll.bind(window, cards), 20 ))
+  // window.addEventListener('scroll', debounce( onScroll.bind(window, cards), DEBOUNCE_DELAY ))
+	window.addEventListener('scroll', onScroll.bind(window, cards))
 }
 document.addEventListener('DOMContentLoaded', main)

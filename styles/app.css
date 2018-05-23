@@ -1,7 +1,6 @@
-:root {
-  --color-table-bg: #fff;
-  --color-table-font: #000;
-}
+@import '_variables.css';
+@import '_fwdtable.css';
+
 *::before, *::after {
   box-sizing: border-box;
 }
@@ -33,12 +32,6 @@ table {
   padding: 1rem;
 }
 
-/* .scorecard.sticky  {
-
-  position: fixed;
-  top: 0;
-} */
-
 .scorecard.sticky {
   padding-top: 52px;
 }
@@ -47,54 +40,56 @@ table {
   top: 0;
 }
 /**
- * Scorecard 2
+ * FWD table
  * @type {[type]}
- */
-.scorecard2 {
+
+.fwdtable {
   table-layout: fixed;
+  border-collapse: collapse;
 }
-.scorecard2, .scorecard2__header {
+.fwdtable, .fwdtable__header {
   background: var(--color-table-bg);
   color: var(--color-table-font);
   text-align: left;
   width: 100%;
 }
 
-.scorecard2.sticky {
+.fwdtable[data-sticky="1"] {
   padding-top: 52px;
 }
-.scorecard2.sticky .scorecard2__header {
+.fwdtable[data-sticky="1"] .fwdtable__header {
   position: fixed;
   top: 0;
 }
 
-.scorecard2__header {
+.fwdtable__header {
   display: none;
 }
 
-.scorecard2__headercell, .scorecard2__cell, .scorecard2__cell::before {
+.fwdtable__headercell, .fwdtable__cell, .fwdtable__cell::before {
   padding: 0.5rem;
 }
-.scorecard2__cell {
+.fwdtable__cell {
   display: block;
 }
 
-.scorecard2__cell::before {
+.fwdtable__cell::before {
   content: attr(data-th)": ";
   display: inline-block;
   font-weight: bold;
 }
 
 @media screen and (min-width: 768px) {
-  .scorecard2__header {
+  .fwdtable__header {
     display: table-header-group;
   }
 
-  .scorecard2__cell {
+  .fwdtable__cell {
     display: table-cell;
   }
 
-  .scorecard2__cell::before {
+  .fwdtable__cell::before {
     display: none;
   }
 }
+*/
